@@ -1,9 +1,9 @@
 /*
  * @Description: 
  * @Autor: Blueheart
- * @Date: 2021-01-07 14:49:25
- * @LastEditTime: 2021-01-07 15:16:09
- * @FilePath: \Algorithm_Leetcode\1.js
+ * @Date: 2021-01-08 15:54:02
+ * @LastEditTime: 2021-01-08 15:58:26
+ * @FilePath: \Algorithm_Leetcode\19. 删除链表的倒数第N个节点.js
  */
 
 // > 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
