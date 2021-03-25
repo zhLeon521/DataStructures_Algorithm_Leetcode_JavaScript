@@ -1,0 +1,29 @@
+{
+  "name": "DataStructures_Algorithm_Leetcode_JavaScript",
+  "version": "1.0.0",
+  "description": "<!--\r  * @Description: \r  * @Autor: Blueheart\r  * @Date: 2021-01-03 21:24:02\r  * @LastEditTime: 2021-01-07 15:22:01\r  * @FilePath: \\Algorithm_Leetcode\\readme.md\r -->\r ## 不要怂，就是干！",
+  "main": "index.js",
+  "scripts": {
+    "type": "git",
+    "url": "git+https://github.com/zhLeon521/DataStructures_Algorithm_Leetcode_JavaScript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhLeon521/DataStructures_Algorithm_Leetcode_JavaScript/issues"
+  },
+  "homepage": "https://github.com/zhLeon521/DataStructures_Algorithm_Leetcode_JavaScript#readme",
+  "devDependencies": {
+    "eslint": "^7.22.0"
+  },
+  "dependencies": {
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-config-prettier": "^8.1.0",
+    "prettier": "^2.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhLeon521/DataStructures_Algorithm_Leetcode_JavaScript.git"
+  }
+}
