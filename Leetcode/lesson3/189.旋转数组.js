@@ -2,7 +2,7 @@
  * @Description: 旋转数组
  * @Autor: Blueheart
  * @Date: 2021-05-13 12:15:09
- * @LastEditTime: 2021-05-13 15:34:52
+ * @LastEditTime: 2021-05-13 15:42:09
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\lesson3\189.旋转数组.js
  */
 /*
@@ -39,23 +39,43 @@
 
     
     //构造翻转函数
-const reverse = (nums, start, end) => {
-    while (start < end) {
-        const temp = nums[start];
-        nums[start] = nums[end];
-        nums[end] = temp;
-        start += 1;
-        end -= 1;
-    }
-};
+// const reverse = (nums, start, end) => {
+//     while (start < end) {
+//         const temp = nums[start];
+//         nums[start] = nums[end];
+//         nums[end] = temp;
+//         start += 1;
+//         end -= 1;
+//     }
+// };
 
-    var rotate = function (nums, k) {
-        const n = nums.length;
-        k = k % n;  
-        reverse(nums, 0, n-1) //全部翻转
-        reverse(nums, 0, k-1) // 前一半翻转
-        reverse(nums, k, n-1) // 翻转后一半
+//     var rotate = function (nums, k) {
+//         const n = nums.length;
+//         k = k % n;  
+//         reverse(nums, 0, n-1) //全部翻转
+//         reverse(nums, 0, k-1) // 前一半翻转
+//         reverse(nums, k, n-1) // 翻转后一半
     
-};
+// };
+
+
+
+
+///############简洁写法#######
+let reverse = (nums, start, end) => {
+    while (start < end) {
+        //元素翻转
+        [nums[start++], nums[end--]] = [nums[end], nums[start]];
+    }
+}
+
+let rotate = (nums, k) => {
+    k %= nums.length;
+    reverse(nums, 0, nums.length - 1);
+    reverse(nums, 0, k - 1);
+    reverse(nums, k, nums.length - 1);
+    return nums;
+}
+
 // @lc code=end
 
