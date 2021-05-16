@@ -1,6 +1,17 @@
+/*
+ * @Description: 
+ * @Autor: Blueheart
+ * @Date: 2021-05-16 23:52:07
+ * @LastEditTime: 2021-05-16 23:54:30
+ * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\lesson3\21.合并两个有序链表.js
+ */
+/*
+ * @lc app=leetcode.cn id=21 lang=javascript
+ *
+ * [21] 合并两个有序链表
+ */
 
-// 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
-
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
@@ -13,6 +24,7 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
+// 第二次做了，还有有点陌生。不过很快就能回忆起来了
 var mergeTwoLists = function(l1, l2) {
     // 设置一个工作节点
     let curr = new ListNode();
@@ -37,13 +49,11 @@ var mergeTwoLists = function(l1, l2) {
     if( l1 !== null){
         curr.next = l1;
     }
-
     if(l2 !== null){
         curr.next = l2;
     }
-
     //最后将dummy节点后面的所有链表返回
     return dummy.next;
-
-
 };
+// @lc code=end
+
