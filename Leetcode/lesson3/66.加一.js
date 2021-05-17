@@ -2,7 +2,7 @@
  * @Description: 加一
  * @Autor: Blueheart
  * @Date: 2021-05-18 00:06:32
- * @LastEditTime: 2021-05-18 00:47:52
+ * @LastEditTime: 2021-05-18 00:49:36
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\lesson3\66.加一.js
  */
 /*
@@ -23,7 +23,7 @@
  *       b.数组长度改变，如：999+1=1000，改变数组长度，第一位是1，其余是0
  * 
  */
-let digits = [4, 9, 9, 9];
+let digits = [9, 9, 9, 9];
 var plusOne = function (digits) {
     const len = digits.length;
     // 特别要注意，数组从零开始，一定要从零开始遍历
@@ -37,14 +37,15 @@ var plusOne = function (digits) {
     }
     
     // 如果上面都是0（就没有返回值），说明数组需要长度加一
-    digits = [...Array(len + 1)].map(_ => 0);
-    digits[0] = 1;
-    console.log(digits);
-    return digits;
-    
-    
-    
+    // digits = [...Array(len + 1)].map(_ => 0);
+    // digits[0] = 1;
+    // console.log(digits);
+    // return digits;
 
+    // 改进一下写法
+    console.log([1, ...digits]);
+    return [1, ...digits];
+    
 };
 // @lc code=end
 
