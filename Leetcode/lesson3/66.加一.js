@@ -2,7 +2,7 @@
  * @Description: 加一
  * @Autor: Blueheart
  * @Date: 2021-05-18 00:06:32
- * @LastEditTime: 2021-05-18 00:49:36
+ * @LastEditTime: 2021-05-18 00:56:59
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\lesson3\66.加一.js
  */
 /*
@@ -42,9 +42,15 @@ var plusOne = function (digits) {
     // console.log(digits);
     // return digits;
 
-    // 改进一下写法
-    console.log([1, ...digits]);
-    return [1, ...digits];
+    // // 改进一下写法
+    // console.log([1, ...digits]);
+    // return [1, ...digits];
+
+    // 再来一种方法;
+    digits.unshift(1)
+    console.log(digits);
+    return digits;
+    
     
 };
 // @lc code=end
