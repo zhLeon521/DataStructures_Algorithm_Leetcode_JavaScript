@@ -2,7 +2,7 @@
  * @Description: 反转链表
  * @Autor: Blueheart
  * @Date: 2021-05-19 23:39:34
- * @LastEditTime: 2021-05-20 00:23:17
+ * @LastEditTime: 2021-05-20 00:28:23
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\2.Linked List\206.反转链表.js
  */
 /*
@@ -29,10 +29,14 @@ var reverseList = function (head) {
     let curr = head;
     let next = head;
     while (curr != null) {
-        next = curr.next;
-        curr.next = prev;
-        prev = curr;
-        curr = next;
+        // next = curr.next;
+        // curr.next = prev;
+        // prev = curr;
+        // curr = next;
+
+        // 换成ES6语法，省略next
+        // 先移动prev,再移动curr
+        [curr.next, prev, curr] = [prev,curr,curr.next]
     }   
     return prev;
     
