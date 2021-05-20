@@ -16,6 +16,7 @@
 /**
  * @param {ListNode} head
  * @return {boolean}
+ * 龟兔赛跑原理
  */
  var hasCycle = function (head) {
     let slow = head;
@@ -25,9 +26,9 @@
     }
     // 判断一个节点，两个节点不为空，就有戏
     while (fast.next !== null && fast.next.next !== null) {
-        slow = slow.next;
-        fast = fast.next.next;
-        if (slow === fast) {
+        slow = slow.next; //一格
+        fast = fast.next.next; //两格
+        if (slow === fast) { //两个撞上了
             return true;
         }
      }
