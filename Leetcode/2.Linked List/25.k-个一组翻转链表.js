@@ -2,7 +2,7 @@
  * @Description: K个一组翻转链表
  * @Autor: Blueheart
  * @Date: 2021-05-22 22:42:38
- * @LastEditTime: 2021-05-23 15:25:21
+ * @LastEditTime: 2021-05-23 15:54:10
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\2.Linked List\25.k-个一组翻转链表.js
  */
 /*
@@ -84,7 +84,9 @@ var reverseKGroup = function (head, k) {
     return dummy.next;
 
 };
-// @lc code=end
+
+
+
 
 // 拓展！！
 /***
@@ -106,3 +108,51 @@ var reverseKGroup = function (head, k) {
 翻转步骤#2链表： 1->2->5->4->3->8->7->6
  */
 
+
+// // 内部的翻转链表
+// const myReverse = (head) => {
+//     let prev = null;
+//     let curr = head;
+//     let next = head;
+//     while (curr !== null) {
+//         next = curr.next;
+//         curr.next = prev;
+//         prev = curr;
+//         curr = next;
+//     }
+//     return prev;
+// }
+
+// var reverseKGroup = function (head, k) {
+//     let dummy = new ListNode();
+//     dummy.next = myReverse(head);  //一上来就给他翻转过来！！！
+//     let pre = dummy;
+//     let end = dummy;
+
+//     if (head === null && head.next === null) {
+//         return head;
+//     }
+
+//     while (end.next !== null) {
+//         for (let i = 0; i < k && end !== null; i++){
+//             end = end.next;
+//         }
+//         if (end === null) {
+//             break;
+//         }
+
+//         let next = end.next;
+//         end.next = null;
+//         let start = pre.next;
+//         pre.next = myReverse(start); // 每个小组内反转
+//         start.next = next;
+//         pre = start;
+//         end = start;
+
+//     }
+
+//     return myReverse(dummy.next) // 最后把结果反转！！
+    
+
+// }
+// @lc code=end
