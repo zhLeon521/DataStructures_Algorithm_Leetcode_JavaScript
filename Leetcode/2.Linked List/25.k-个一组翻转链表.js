@@ -2,7 +2,7 @@
  * @Description: K个一组翻转链表
  * @Autor: Blueheart
  * @Date: 2021-05-22 22:42:38
- * @LastEditTime: 2021-05-23 14:55:53
+ * @LastEditTime: 2021-05-23 15:14:48
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\2.Linked List\25.k-个一组翻转链表.js
  */
 /*
@@ -26,9 +26,10 @@
  */
 
 // 定义个函数，翻转每个子链表。和206题一样
+// 这个没什么好说的
 let myReverse = (head) => {
     let prev = null;
-    let curr = head;
+    let curr = head; //工作节点，遍历用
     let next = head;
     while (curr !== null) {
         next = curr.next;
@@ -39,33 +40,45 @@ let myReverse = (head) => {
     return prev;
 }
 
-
+// 这部分是主函数
 var reverseKGroup = function (head, k) {
+    // 如果链表为空，或者有一个，那就直接返回就好了
     if (head === null && head.next === null) {
         return head;
     }
-
+    
+    // 新建一个dummy节点，指向链表头部
     let dummy = new ListNode;
     dummy.next = head;
+
+    // 初始化连个节点。
+    // pre: 每次要反转的链表的头结点的上一个节点。
+    // end: 每次要反转的链表的尾节点。
     let pre = dummy; 
     let end = dummy;
 
     while (end.next !== null) {
+        // 循环到 要翻转链表的尾部。这里要判断end是否为空,为空的话会异常。
+        //dummy->1->2->3->4->5 若k为2，循环2次，end指向2
         for (let i = 0; i < k && end !== null; i++){
             end = end.next;
         }
+        // 如果end==null，即需要翻转的链表的节点数小于k，不执行翻转。
         if (end == null) {
             break;
         }
-
+        // ********重点哈！！！！***********
+         //先记录下end.next,方便后面链接链表
         let next = end.next;
-        end.next = null;
+        end.next = null;  //然后断开链表
         
-        let start = pre.next;
+        let start = pre.next;//记录下要翻转链表的头节点
+
+        //翻转链表,pre.next指向翻转后的链表。1->2 变成2->1。 dummy->2->1
         pre.next = myReverse(start);
-        start.next = next;
-        pre = start;
-        end = start;
+        start.next = next; //翻转后头节点变到最后。通过.next把断开的链表重新链接。
+        pre = start; //将pre换成下次要翻转的链表的头结点的上一个节点。即start
+        end = start; //翻转结束，将end置为下次要翻转的链表的头结点的上一个节点。即start
     }
 
     return dummy.next;
