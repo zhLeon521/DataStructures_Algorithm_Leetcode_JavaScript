@@ -2,7 +2,7 @@
  * @Description: 有效的括号
  * @Autor: Blueheart
  * @Date: 2021-05-24 11:24:28
- * @LastEditTime: 2021-05-24 11:39:14
+ * @LastEditTime: 2021-05-24 11:42:06
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\3.Stack\20.有效的括号.js
  */
 /*
@@ -24,28 +24,37 @@
  * 
  * 3.循环结束后，看一下stack是否为空，不为空就说明还剩一些左括号没有被闭合，返回false.否则返回true。
  */
-var isValid = function (s) {
-    const map = new Map();
-    map.set("(", ")")
-        .set("[", "]")
-        .set("{", "}");
+ var isValid = function(s) {
+    //s是传入的字符串，map是我们新建的hashmap;
     
+    // 1. 创建一个HashMap,把括号配对放进去
+    const map = new Map();
+    map.set("(",")");
+    map.set("[","]");
+    map.set("{","}");
+
+    // 2. 创建一个Stack(Array)
     const stack = [];
-    for (let i = 0; i < s.length; i++){
-        if (map.has(s[i])) {
+    for(let i = 0; i<s.length; i++){
+        //检查hashmap 中有没有key (也就是左括号)
+        if(map.has(s[i])){
+            //如果有的话，将他的右括号放进去 || map.get()方法：返回一个 Map 对象中与指定键相关联的值！
             stack.push(map.get(s[i]));
-        } else {
-            if (stack.pop() !== s[i]) {
+        } else{// 如果不是左括号，那么就是右括号(检查map中有没有这个key)。既要将其pop出与当前字符串比较。相等的话就没问题
+            
+            // 如果返回的不与当前字符串相等，则返回false
+            if(stack.pop() !== s[i]){
                 return false;
             }
-        }
+        }   
     }
-
-    if (stack.length !== 0) {
+    
+    // 最后检查一下stack是否为空，不为空返回false！
+    if ( stack.length !== 0){
         return false;
     }
+    // 如果这些都通过了，那么就返回true；
     return true;
-
 };
 // @lc code=end
 
