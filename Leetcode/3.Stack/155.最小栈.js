@@ -10,7 +10,7 @@
  */
  var MinStack = function () {
     this.Stack = [];
-    this.minStack = [Infinity];
+    this.minStack = [Infinity]; //new Create a Stack, minStack use Infinity站位，方便比较。
 };
 
 /** 
@@ -18,30 +18,30 @@
  * @return {void}
  */
 MinStack.prototype.push = function (val) {
-    this.Stack.push(val);
-    this.minStack.push(Math.min(val, this.minStack[this.minStack.length - 1]));
+    this.Stack.push(val); // 原始栈直接将元素压入
+    this.minStack.push(Math.min(val, this.minStack[this.minStack.length - 1])); //最小栈将小的压入
 }
 
 /**
  * @return {void}
  */
 MinStack.prototype.pop = function () {
-    this.Stack.pop();
-    this.minStack.pop();
+    this.Stack.pop(); //弹出，并删除
+    this.minStack.pop(); // 弹出，并删除
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.top = function () {
-    return this.Stack[this.Stack.length - 1];
+    return this.Stack[this.Stack.length - 1];  //返回栈顶元素，不删除
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.getMin = function () {
-    return this.minStack[this.minStack.length - 1];
+    return this.minStack[this.minStack.length - 1]; //取出最小栈栈顶元素
 };
 
 /**
