@@ -8,37 +8,40 @@
 /**
  * initialize your data structure here.
  */
-var MinStack = function() {
-
+ var MinStack = function () {
+    this.Stack = [];
+    this.minStack = [Infinity];
 };
 
 /** 
  * @param {number} val
  * @return {void}
  */
-MinStack.prototype.push = function(val) {
-
-};
+MinStack.prototype.push = function (val) {
+    this.Stack.push(val);
+    this.minStack.push(Math.min(val, this.minStack[this.minStack.length - 1]));
+}
 
 /**
  * @return {void}
  */
-MinStack.prototype.pop = function() {
-
+MinStack.prototype.pop = function () {
+    this.Stack.pop();
+    this.minStack.pop();
 };
 
 /**
  * @return {number}
  */
-MinStack.prototype.top = function() {
-
+MinStack.prototype.top = function () {
+    return this.Stack[this.Stack.length - 1];
 };
 
 /**
  * @return {number}
  */
-MinStack.prototype.getMin = function() {
-
+MinStack.prototype.getMin = function () {
+    return this.minStack[this.minStack.length - 1];
 };
 
 /**
