@@ -2,7 +2,7 @@
  * @Description: 合并两个有序数组
  * @Autor: Blueheart
  * @Date: 2021-05-27 16:48:05
- * @LastEditTime: 2021-05-27 17:07:55
+ * @LastEditTime: 2021-05-27 17:39:34
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\leetcode-2\1.Array\88.合并两个有序数组.js
  */
 /*
@@ -34,13 +34,10 @@ var merge = function (nums1, m, nums2, n) {
             nums1[k--] = nums2[j--];
         }
     }
-
+    
     while (j >= 0) {
         nums1[k--] = nums2[j--];
     }
- 
-
-
 };
 // @lc code=end
 
