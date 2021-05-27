@@ -5,7 +5,7 @@
  * @LastEditTime: 2021-03-13 20:55:18
  * @FilePath: \Algorithm_Leetcode\DataStructures_js\Stack\leetcode\dec2bin.js
  */
-import Stack from '../Stack.js';
+import Stack from './Stack.js';
 
 // 利用栈结构的特点封装实现十进制转换为二进制的方法
 export default function dec2bin(dec) {
