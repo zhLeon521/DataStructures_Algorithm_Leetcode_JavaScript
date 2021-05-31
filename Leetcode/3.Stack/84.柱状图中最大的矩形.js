@@ -2,7 +2,7 @@
  * @Description: 柱状图中的最大矩形
  * @Autor: Blueheart
  * @Date: 2021-05-31 12:00:02
- * @LastEditTime: 2021-05-31 12:29:16
+ * @LastEditTime: 2021-05-31 12:50:37
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\3.Stack\84.柱状图中最大的矩形.js
  */
 /*
@@ -22,15 +22,18 @@ var largestRectangleArea = function (heights) {
     let maxArea = 0;
     const stack = [];
     heights = [0].concat(heights).concat([0]);
-    console.log(heights);
+    // console.log(heights);
     for (let i = 0; i < heights.length; i++){
+        console.log("i:", i);
+        // 当后面比前面小，就开始操作
         while (stack && heights[stack[stack.length - 1]] > heights[i]) {
             const j = stack.pop();
             maxArea = Math.max((i-stack[stack.length - 1]-1)*heights[j], maxArea)
-            console.log(maxArea);
+            console.log("maxArea：",maxArea);
         }
         // 重要的是记录下标
-        stack.push(i); 
+        stack.push(i);
+        console.log(stack);
     }
     return maxArea;
 };
