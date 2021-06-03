@@ -2,7 +2,7 @@
  * @Description: 柱状图中的最大矩形
  * @Autor: Blueheart
  * @Date: 2021-05-31 12:00:02
- * @LastEditTime: 2021-06-03 11:59:49
+ * @LastEditTime: 2021-06-03 12:02:47
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\3.Stack\84.柱状图中最大的矩形.js
  */
 /*
@@ -16,6 +16,7 @@
  * @param {number[]} heights
  * @return {number}
  * https://leetcode-cn.com/problems/largest-rectangle-in-histogram/solution/bao-li-jie-fa-zhan-by-liweiwei1419/
+ * https://leetcode-cn.com/problems/largest-rectangle-in-histogram/solution/dong-hua-yan-shi-dan-diao-zhan-84zhu-zhu-03w3/
  */
 var largestRectangleArea = function (heights) {
     // 添加哨兵Sentinel  初始化最终结果为0
