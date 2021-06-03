@@ -2,7 +2,7 @@
  * @Description: 单调递减栈
  * @Autor: Blueheart
  * @Date: 2021-06-03 16:47:10
- * @LastEditTime: 2021-06-03 17:22:12
+ * @LastEditTime: 2021-06-03 17:26:16
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\3.Stack\739.每日温度.js
  */
 /*
@@ -15,6 +15,7 @@
 /**
  * @param {number[]} temperatures => temps
  * @return {number[]}
+ * ‘找右边第 1 个大于（或小于）自己的元素，这种问题的套路就是使用栈’划重点，要考！！
  */
 var dailyTemperatures = function (temps) {
     let stack = [];
