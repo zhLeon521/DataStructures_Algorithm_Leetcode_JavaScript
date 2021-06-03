@@ -2,7 +2,7 @@
  * @Description: 接雨水，这题用到单调递减栈
  * @Autor: Blueheart
  * @Date: 2021-06-03 15:42:56
- * @LastEditTime: 2021-06-03 16:32:34
+ * @LastEditTime: 2021-06-03 16:33:15
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\3.Stack\42.接雨水.js
  */
 /*
@@ -16,6 +16,7 @@
  * @param {number[]} height
  * @return {number}
  * 单调递减栈！！
+ * https://leetcode-cn.com/problems/trapping-rain-water/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-8/
  */
  var trap = function (height) {
     let stack = [];
