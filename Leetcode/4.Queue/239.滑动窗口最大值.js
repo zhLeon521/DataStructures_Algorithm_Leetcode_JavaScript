@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-07-21 00:48:44
- * @LastEditTime: 2021-07-21 01:04:11
+ * @LastEditTime: 2021-07-23 23:08:30
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\4.Queue\239.滑动窗口最大值.js
  */
 /*
@@ -30,6 +30,7 @@ var maxSlidingWindow = function (nums, k) {
         deque.push(i);
 
         // 当队头元素的索引被排除在滑动窗口之外
+        // 这里也可以使用if,但是while更快好像
         while (deque.length && deque[0] <= i - k) {
             deque.shift();
         }
