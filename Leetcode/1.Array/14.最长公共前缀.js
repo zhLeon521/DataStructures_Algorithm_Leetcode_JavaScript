@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-09-11 14:59:36
- * @LastEditTime: 2021-09-11 15:19:56
+ * @LastEditTime: 2021-09-13 10:10:07
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\1.Array\14.最长公共前缀.js
  */
 /*
@@ -15,17 +15,33 @@
 /**
  * @param {string[]} strs
  * @return {string}
+ * 
+ * 判断是否为空，空直接返回
+ * 对数组进行按字母顺序排序
+ * 只比较第一个和最后一个，相等就继续走，不相等就返回
+ * 
  */
- var longestCommonPrefix = function(strs) {
-    'use strict';
-    if (strs === undefined || strs.length === 0) { return ''; }
-    
-    return strs.reduce((accumulator, currentValue) => {
-        let i = 0;
-        while (accumulator[i] && currentValue[i] && accumulator[i] === currentValue[i])
-            i++;
-        return accumulator.slice(0, i);
-    });
+var longestCommonPrefix = function (strs) {
+
+    let ans = '';
+    // 按字母顺序排列数组
+    if (!strs || !strs.length) return '';
+
+    strs.sort();
+
+    // 按照第一个元素长度进行遍历；
+    for (let i = 0; i < strs[0].length; ++i){
+        if (strs[0][i] !== strs[strs.length - 1][i]) { //只比较第一项和最后一项
+            break;
+        } else {
+            ans += strs[0][i];
+        }
+    }
+
+    return ans;
+
+
+
 };
 // @lc code=end
 
