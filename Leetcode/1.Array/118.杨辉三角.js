@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-09-23 12:10:37
- * @LastEditTime: 2021-09-23 13:00:20
+ * @LastEditTime: 2021-09-23 14:00:10
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\1.Array\118.杨辉三角.js
  */
 /*
@@ -32,6 +32,7 @@ var generate = function (numRows) {
         res[i][i] = 1; //最后一列也是1
         
     }
+
     return res;
 
 }
