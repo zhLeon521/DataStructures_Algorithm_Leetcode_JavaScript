@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-11-05 23:52:28
- * @LastEditTime: 2021-11-06 00:23:21
+ * @LastEditTime: 2021-11-06 10:42:17
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\5.Tree\144.二叉树的前序遍历.js
  */
 /*
@@ -25,28 +25,50 @@
  * @return {number[]}
  */
 
-var preorderTraversal = function (root) {
-    let res = []
-    const order = (root) => {
-        if (root === null) return res;
-        //先序遍历所以从父节点开始
-        res.push(root.val);
+// var preorderTraversal = function (root) {
+//     let res = []
+//     const order = (root) => {
+//         if (root === null) return res;
+//         //先序遍历所以从父节点开始
+//         res.push(root.val);
 
-        //递归左子树
-        if (root.left !== null) {
-            order(root.left)
-        }
-        
-        //递归右子树
-        if (root.right !== null) {
-            order(root.right)
-        }
-    }
-    //只使用一个参数 使用闭包进行存储结果
-    order(root);
-    return res;
+//         //递归左子树
+//         if (root.left !== null) {
+//             order(root.left)
+//         }
+
+//         //递归右子树
+//         if (root.right !== null) {
+//             order(root.right)
+//         }
+//     }
+//     //只使用一个参数 使用闭包进行存储结果
+//     order(root);
+//     return res;
     
 
-};
+// };
+
+// 迭代：
+// 维护Stack, 入栈：右->左；出栈：中->左->右
+var preorderTraversal = function (root) {
+    const res = [];
+    if (root === null) return res;
+    
+    const stack = [];
+    stack.push(root);
+    while (stack.length > 0) {
+        let curr = stack.pop();
+        res.push(curr.val);
+
+        if (curr.right !== null) {
+            stack.push(curr.right)
+        }
+        if (curr.left !== null) {
+            stack.push(curr.left)
+        }
+    }
+    return res;
+}
 // @lc code=end
 
