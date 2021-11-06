@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-11-05 23:52:28
- * @LastEditTime: 2021-11-06 12:24:22
+ * @LastEditTime: 2021-11-06 17:55:10
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\5.Tree\144.二叉树的前序遍历.js
  */
 /*
@@ -54,22 +54,49 @@
 // 前序遍历：中左右
 // 压栈顺序：右左中
 
-var preorderTraversal = function(root, res = []) {
+// var preorderTraversal = function(root, res = []) {
+//     const stack = [];
+//     if (root) stack.push(root);
+//     while(stack.length) {
+//         const node = stack.pop();
+//         if(!node) {
+//             res.push(stack.pop().val);
+//             continue;
+//         }
+//         if (node.right) stack.push(node.right); // 右
+//         if (node.left) stack.push(node.left); // 左
+//         stack.push(node); // 中
+//         stack.push(null);
+//     };
+//     return res;
+// };
+
+
+var preorderTraversal = function (root) { 
     const stack = [];
+    let res = [];
     if (root) stack.push(root);
-    while(stack.length) {
+
+    while (stack.length) {
         const node = stack.pop();
-        if(!node) {
-            res.push(stack.pop().val);
-            continue;
+
+        if(node !== null) {
+            if (node.right) stack.push(node.right);
+            if (node.left) stack.push(node.left);
+            stack.push(node);
+            stack.push(null) //标记
         }
-        if (node.right) stack.push(node.right); // 右
-        if (node.left) stack.push(node.left); // 左
-        stack.push(node); // 中
-        stack.push(null);
-    };
+
+        if(node === null) {
+            res.push(stack.pop().val)
+            continue;
+     }
+    }
     return res;
-};
+     
+    
+}
+
 
 // @lc code=end
 
