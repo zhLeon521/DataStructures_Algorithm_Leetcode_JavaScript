@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-11-05 23:52:28
- * @LastEditTime: 2021-11-06 10:42:17
+ * @LastEditTime: 2021-11-06 12:24:22
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\5.Tree\144.二叉树的前序遍历.js
  */
 /*
@@ -50,25 +50,26 @@
 // };
 
 // 迭代：
-// 维护Stack, 入栈：右->左；出栈：中->左->右
-var preorderTraversal = function (root) {
-    const res = [];
-    if (root === null) return res;
-    
-    const stack = [];
-    stack.push(root);
-    while (stack.length > 0) {
-        let curr = stack.pop();
-        res.push(curr.val);
 
-        if (curr.right !== null) {
-            stack.push(curr.right)
+// 前序遍历：中左右
+// 压栈顺序：右左中
+
+var preorderTraversal = function(root, res = []) {
+    const stack = [];
+    if (root) stack.push(root);
+    while(stack.length) {
+        const node = stack.pop();
+        if(!node) {
+            res.push(stack.pop().val);
+            continue;
         }
-        if (curr.left !== null) {
-            stack.push(curr.left)
-        }
-    }
+        if (node.right) stack.push(node.right); // 右
+        if (node.left) stack.push(node.left); // 左
+        stack.push(node); // 中
+        stack.push(null);
+    };
     return res;
-}
+};
+
 // @lc code=end
 
