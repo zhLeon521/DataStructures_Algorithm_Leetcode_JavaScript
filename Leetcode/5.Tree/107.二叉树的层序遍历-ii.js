@@ -1,14 +1,14 @@
 /*
- * @Description: 
+ * @Description: []
  * @Autor: Blueheart
- * @Date: 2021-11-08 10:04:27
- * @LastEditTime: 2021-11-08 10:54:01
- * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\5.Tree\102.二叉树的层序遍历.js
+ * @Date: 2021-11-08 10:49:34
+ * @LastEditTime: 2021-11-08 11:40:14
+ * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\5.Tree\107.二叉树的层序遍历-ii.js
  */
 /*
- * @lc app=leetcode.cn id=102 lang=javascript
+ * @lc app=leetcode.cn id=107 lang=javascript
  *
- * [102] 二叉树的层序遍历
+ * [107] 二叉树的层序遍历 II
  */
 
 // @lc code=start
@@ -24,32 +24,31 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var levelOrder = function (root) {
-    let res= [];
+var levelOrderBottom = function (root) {
+    let res = [];
     let queue = [];
+    queue.push(root)
 
     if (root === null) return res;
 
-    queue.push(root);
     while (queue.length) {
-        const length = queue.length;
         let currLevel = [];
-
-        for (let i = 0; i < length; i++){ // 一层层遍历
-            let node = queue.shift(); //取第一个元素
+        let length = queue.length;
+        while (length--) {
+            let node = queue.shift();
             currLevel.push(node.val);
             if (node.left) {
-                queue.push(node.left);
+                queue.push(node.left)
             }
-
             if (node.right) {
                 queue.push(node.right)
             }
-            
         }
         res.push(currLevel)
     }
-    return res;
+
+    return res.reverse();
+
 
 };
 // @lc code=end
