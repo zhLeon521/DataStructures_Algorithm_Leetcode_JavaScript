@@ -25,6 +25,8 @@
 /**
  * @param {Node} root
  * @return {Node}
+ * 方法二：https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node-ii/solution/bfsjie-jue-zui-hao-de-ji-bai-liao-100de-yong-hu-by/
+ * 以后看
  */
 var connect = function (root) {
     let queue = [root];
