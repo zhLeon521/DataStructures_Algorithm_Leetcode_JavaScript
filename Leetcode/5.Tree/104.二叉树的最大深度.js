@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-11-09 15:21:17
- * @LastEditTime: 2021-11-09 15:30:27
+ * @LastEditTime: 2021-11-09 15:44:49
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\5.Tree\104.二叉树的最大深度.js
  */
 /*
@@ -29,8 +29,8 @@ var maxDepth = function (root) {
     queue.push(root);
     if (root === null) return root;
 
-    let depth = 0;
-    
+    let depth = 0; // 最大深度这里和111题最小深度，重点记忆一下。
+
     while (queue.length) {
         let length = queue.length;
         while (length--) {
