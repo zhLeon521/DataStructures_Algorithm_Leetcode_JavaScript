@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-11-09 09:42:44
- * @LastEditTime: 2021-11-09 10:22:35
+ * @LastEditTime: 2021-11-09 10:38:12
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\5.Tree\116.填充每个节点的下一个右侧节点指针.js
  */
 /*
@@ -25,6 +25,7 @@
 /**
  * @param {Node} root
  * @return {Node}
+ * 这题是完美二叉树哦哦！！
  */
 var connect = function (root) {
     let queue = [];
