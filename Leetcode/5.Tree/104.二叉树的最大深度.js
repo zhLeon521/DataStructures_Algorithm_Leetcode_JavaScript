@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-11-09 15:21:17
- * @LastEditTime: 2021-11-09 15:24:58
+ * @LastEditTime: 2021-11-09 15:30:27
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\5.Tree\104.二叉树的最大深度.js
  */
 /*
@@ -25,10 +25,12 @@
  * @return {number}
  */
 var maxDepth = function (root) {
-    let res = [], queue = [];
+    let queue = [];
     queue.push(root);
     if (root === null) return root;
+
     let depth = 0;
+    
     while (queue.length) {
         let length = queue.length;
         while (length--) {
