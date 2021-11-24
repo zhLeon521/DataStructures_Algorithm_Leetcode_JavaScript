@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-11-08 10:04:27
- * @LastEditTime: 2021-11-08 10:54:01
+ * @LastEditTime: 2021-11-24 21:52:46
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\5.Tree\102.二叉树的层序遍历.js
  */
 /*
@@ -33,11 +33,14 @@ var levelOrder = function (root) {
     queue.push(root);
     while (queue.length) {
         const length = queue.length;
-        let currLevel = [];
+        let currLevel = [];  //保存这一层的节点
 
+        // 注意啊，这里不能写 i< queue.length, 因为不断往里面push下层节点，一直在变
         for (let i = 0; i < length; i++){ // 一层层遍历
             let node = queue.shift(); //取第一个元素
-            currLevel.push(node.val);
+            currLevel.push(node.val); // 将这个节点放到这层里面，
+
+            // 讲下一层的节点放进去
             if (node.left) {
                 queue.push(node.left);
             }
