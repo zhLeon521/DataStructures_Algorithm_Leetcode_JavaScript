@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-11-09 15:31:03
- * @LastEditTime: 2021-11-09 15:43:05
+ * @LastEditTime: 2021-12-09 22:55:06
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\5.Tree\111.二叉树的最小深度.js
  */
 /*
@@ -26,18 +26,40 @@
  * 只有当左右孩子都为空的时候，
  * 才说明遍历的最低点了。
  * 如果其中一个孩子为空则不是最低点
+ * 
+ * 注意啊，是节点数量
  */
 var minDepth = function (root) {
+    // let queue = [];
+    // queue.push(root);
+    // if (root === null) return 0;
+    // let depth = 1; //主要不为空，就有一层。
+
+    // while (queue.length) {
+    //     let length = queue.length;
+    //     while (length--) {
+    //         let node = queue.shift();
+
+    //         if (node.left === null && node.right === null) {
+    //             return depth;
+    //         }
+    //         if (node.left) queue.push(node.left);
+    //         if (node.right) queue.push(node.right);
+    //     }
+    //     depth++;
+    // }
+    // return depth;
+
     let queue = [];
     queue.push(root);
     if (root === null) return 0;
-    let depth = 1; //主要不为空，就有一层。
+
+    let depth = 1;
 
     while (queue.length) {
         let length = queue.length;
         while (length--) {
             let node = queue.shift();
-
             if (node.left === null && node.right === null) {
                 return depth;
             }
@@ -46,7 +68,9 @@ var minDepth = function (root) {
         }
         depth++;
     }
+
     return depth;
+
 };
 // @lc code=end
 
