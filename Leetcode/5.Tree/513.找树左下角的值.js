@@ -18,7 +18,7 @@
  * @return {number}
  */
 var findBottomLeftValue = function (root) {
-    // 层序遍历，记录每一层最左边的点
+    // 层序遍历
     let queue = [];
     queue.push(root);
     if (root === null) return null;
@@ -35,10 +35,8 @@ var findBottomLeftValue = function (root) {
             if (node.right) queue.push(node.right)
         }
 
-
     }
     return res;
-
 
 };
 // @lc code=end
