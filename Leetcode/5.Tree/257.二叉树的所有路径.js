@@ -28,6 +28,7 @@ var binaryTreePaths = function (root) {
         }
 
         currPath += node.val + '->';
+        
         if (node.left) {
             getPath(node.left, currPath)
         }
@@ -41,5 +42,6 @@ var binaryTreePaths = function (root) {
 
 
 };
+
 // @lc code=end
 
