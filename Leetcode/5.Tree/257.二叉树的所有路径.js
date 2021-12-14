@@ -17,31 +17,56 @@
  * @param {TreeNode} root
  * @return {string[]}
  */
+// var binaryTreePaths = function (root) {
+//     let res = [];
+
+//     const getPath = (node, currPath) => {
+//         if (node.left === null && node.right === null) {
+//             currPath += node.val;
+//             res.push(currPath)
+//             return;
+//         }
+
+//         currPath += node.val + '->';
+
+//         if (node.left) {
+//             getPath(node.left, currPath)
+//         }
+//         if (node.right) {
+//             getPath(node.right, currPath)
+//         }
+
+//     }
+//     getPath(root, '')
+//     return res;
+
+
+// };
+
+
 var binaryTreePaths = function (root) {
     let res = [];
 
     const getPath = (node, currPath) => {
         if (node.left === null && node.right === null) {
             currPath += node.val;
-            res.push(currPath)
+            res.push(currPath);
             return;
         }
 
         currPath += node.val + '->';
-        
+
         if (node.left) {
             getPath(node.left, currPath)
         }
         if (node.right) {
             getPath(node.right, currPath)
         }
-
     }
-    getPath(root, '')
+
+    getPath(root, '');
     return res;
-
-
-};
+}
 
 // @lc code=end
 
