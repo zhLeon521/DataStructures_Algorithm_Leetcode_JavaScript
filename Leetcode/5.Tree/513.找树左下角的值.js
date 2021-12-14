@@ -17,27 +17,27 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var findBottomLeftValue = function (root) {
-    // 层序遍历
-    let queue = [];
-    queue.push(root);
-    if (root === null) return null;
+// var findBottomLeftValue = function (root) {
+//     // 层序遍历
+//     let queue = [];
+//     queue.push(root);
+//     if (root === null) return null;
 
-    let res;
-    while (queue.length) {
-        let length = queue.length;
-        for (let i = 0; i < length; i++) {
-            let node = queue.shift();
-            if (i === 0) {
-                res = node.val;
-            }
-            if (node.left) queue.push(node.left)
-            if (node.right) queue.push(node.right)
-        }
+//     let res;
+//     while (queue.length) {
+//         let length = queue.length;
+//         for (let i = 0; i < length; i++) {
+//             let node = queue.shift();
+//             if (i === 0) {
+//                 res = node.val;
+//             }
+//             if (node.left) queue.push(node.left)
+//             if (node.right) queue.push(node.right)
+//         }
 
-    }
-    return res;
+//     }
+//     return res;
 
-};
+// };
 // @lc code=end
 

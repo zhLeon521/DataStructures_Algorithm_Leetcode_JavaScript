@@ -22,8 +22,8 @@
 //     const nodeSum = (node) => {
 //         if (node === null) return 0;
 
-//         let leftValue = sumOfLeftLeaves(node.left)
-//         let rightValue = sumOfLeftLeaves(node.right)
+//         let leftValue = nodeSum(node.left)
+//         let rightValue = nodeSum(node.right)
 
 //         let midValue = 0;
 
@@ -42,8 +42,32 @@
 
 
 
+// // 迭代
+// // 采用层序遍历
+// var sumOfLeftLeaves = function (root) {
+//     let queue = [];
+//     queue.push(root);
+
+//     if (root === null) return 0;
+//     let sum = 0;
+
+//     while (queue.length) {
+//         let node = queue.shift();
+//         if (node.left && node.left.left === null && node.left.right === null) {
+//             sum += node.left.val
+//         }
+//         if (node.left) {
+//             queue.push(node.left)
+//         }
+//         if (node.right) {
+//             queue.push(node.right)
+//         }
+//     }
+//     return sum;
+// }
+
+
 // 迭代
-// 采用层序遍历
 var sumOfLeftLeaves = function (root) {
     let queue = [];
     queue.push(root);
@@ -59,15 +83,11 @@ var sumOfLeftLeaves = function (root) {
         if (node.left) {
             queue.push(node.left)
         }
-        if (node.right) {
+        if (node.rigth) {
             queue.push(node.right)
         }
     }
     return sum;
-
-
-
-
 }
 // @lc code=end
 
