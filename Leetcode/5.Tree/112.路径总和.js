@@ -2,7 +2,7 @@
  * @Description:
  * @Autor: Blueheart
  * @Date: 2021-11-15 11:08:37
- * @LastEditTime: 2021-12-16 14:37:11
+ * @LastEditTime: 2021-12-16 14:41:01
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\5.Tree\112.路径总和.js
  */
 /*
@@ -98,31 +98,41 @@
 // }
 
 
-// 递归
+// // 递归
+// var hasPathSum = function (root, targetSum) {
+//     if (root === null) return false;
+
+//     const traversal = (node, count) => {
+//         if (!node.left && !node.right && count === 0) return true;
+//         if (!node.left && !node.right) return false;
+
+//         if (node.left) {
+//             count -= node.left.val;
+//             if (traversal(node.left, count)) return true;
+//             count += node.left.val;
+//         }
+
+//         if (node.right) {
+//             count -= node.right.val;
+//             if (traversal(node.right, count)) return true;
+//             count += node.right.val;
+//         }
+
+//         return false;
+
+//     }
+//     return traversal(root, targetSum - root.val);
+
+// }
+
+// 递归精简版
 var hasPathSum = function (root, targetSum) {
     if (root === null) return false;
-
-    const traversal = (node, count) => {
-        if (!node.left && !node.right && count === 0) return true;
-        if (!node.left && !node.right) return false;
-
-        if (node.left) {
-            count -= node.left.val;
-            if (traversal(node.left, count)) return true;
-            count += node.left.val;
-        }
-
-        if (node.right) {
-            count -= node.right.val;
-            if (traversal(node.right, count)) return true;
-            count += node.right.val;
-        }
-
-        return false;
-
+    if (!root.left && !root.right && targetSum === root.val) {
+        return true;
     }
-    return traversal(root, targetSum - root.val);
 
+    return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val)
 }
 
 // @lc code=end
