@@ -42,34 +42,47 @@
 // };
 
 //我们先定义节点交换函数
+// var invertTree = function (root) {
+//     const invertNode = (root, left, right) => {
+//         let temp = left;
+//         left = right;
+//         right = temp;
+
+//         root.left = left;
+//         root.right = right;
+//     }
+
+//     // 层序遍历
+//     let queue = [];
+//     if (root === null) return root;
+//     queue.push(root);
+
+//     while (queue.length) {
+//         let length = queue.length;
+//         for (let i = 0; i < length; i++) {
+//             let node = queue.shift()
+//             invertNode(node, node.left, node.right);
+//             if (node.left) {
+//                 queue.push(node.left)
+//             }
+//             if (node.right) {
+//                 queue.push(node.right)
+//             }
+//         }
+//     }
+//     return root;
+
+// }
+
+// 直接上递归：前序遍历
 var invertTree = function (root) {
-    const invertNode = (root, left, right) => {
-        let temp = left;
-        left = right;
-        right = temp;
-
-        root.left = left;
-        root.right = right;
+    const invertTree = (root) => {
+        if (root === null) return root;
+        [root.left, root.right] = [root.right, root.left];
+        invertTree(root.left);
+        invertTree(root.right)
     }
-
-    // 层序遍历
-    let queue = [];
-    if (root === null) return root;
-    queue.push(root);
-
-    while (queue.length) {
-        let length = queue.length;
-        for (let i = 0; i < length; i++) {
-            let node = queue.shift()
-            invertNode(node, node.left, node.right);
-            if (node.left) {
-                queue.push(node.left)
-            }
-            if (node.right) {
-                queue.push(node.right)
-            }
-        }
-    }
+    invertTree(root);
     return root;
 
 }
