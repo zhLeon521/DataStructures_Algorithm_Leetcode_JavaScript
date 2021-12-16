@@ -35,6 +35,5 @@ var isValidBST = function (root) {
 
 };
 
-
 // @lc code=end
 
