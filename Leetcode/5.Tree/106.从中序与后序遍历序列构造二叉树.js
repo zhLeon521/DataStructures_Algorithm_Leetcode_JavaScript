@@ -1,8 +1,8 @@
 /*
- * @Description: 
+ * @Description:
  * @Autor: Blueheart
  * @Date: 2021-11-16 11:08:28
- * @LastEditTime: 2021-12-12 18:12:07
+ * @LastEditTime: 2021-12-16 14:55:37
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\5.Tree\106.从中序与后序遍历序列构造二叉树.js
  */
 /*
@@ -25,9 +25,9 @@
  * @param {number[]} postorder
  * @return {TreeNode}
  * 从中序与后序遍历序列构造二叉树
- * 
+ *
  * 后序遍历：左右根，所以后序数组最后一个元素即为根元素。用它来切割中序数组
- * 
+ *
  */
 // var buildTree = function (inorder, postorder) {
 //     // 开始就是先从后序遍历开始，为空，就返回null
@@ -43,7 +43,7 @@
 
 //     // 顺序别搞反了，一定是先切中序数组！！！
 //     root.left = buildTree(inorder.slice(0, index), postorder.slice(0, index));
-//     // 
+//     //
 //     root.right = buildTree(inorder.slice(index + 1, inorder.length), postorder.slice(index, postorder.length - 1)); //把用过的根节点舍去
 
 //     return root;
@@ -51,7 +51,7 @@
 // };
 
 /**
- * 
+ *
  *第一步：如果数组大小为零的话，说明是空节点了。
 
     第二步：如果不为空，那么取后序数组最后一个元素作为节点元素。
@@ -66,22 +66,31 @@
 
  */
 
-// 要画图
-var buildTree = function (inorder, postorder) {
-    if (!postorder.length) return null;
-    let root = new TreeNode(postorder[postorder.length - 1]);
+// // 要画图
+// var buildTree = function (inorder, postorder) {
+//     if (!postorder.length) return null;
+//     let root = new TreeNode(postorder[postorder.length - 1]);
 
+//     let index = inorder.findIndex(number => number === root.val);
+
+//     root.left = buildTree(inorder.slice(0, index), postorder.slice(0, index));
+
+//     root.right = buildTree(inorder.slice(index + 1, inorder.length), postorder.slice(index, postorder.length - 1));
+
+//     return root;
+
+// }
+
+var buildTree = function (inorder, postorder) {
+    if (postorder.length === 0) return null;
+    let root = new TreeNode(postorder[postorder.length - 1]);
     let index = inorder.findIndex(number => number === root.val);
 
     root.left = buildTree(inorder.slice(0, index), postorder.slice(0, index));
-
-    root.right = buildTree(inorder.slice(index + 1, inorder.length), postorder.slice(index, postorder.length - 1));
-
+    root.right = buildTree(inorder.slice(index + 1), postorder.slice(index, postorder.length - 1))
     return root;
 
 }
-
-
 
 // @lc code=end
 
