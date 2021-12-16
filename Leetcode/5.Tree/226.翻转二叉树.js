@@ -74,17 +74,38 @@
 
 // }
 
-// 直接上递归：前序遍历
-var invertTree = function (root) {
-    const invertTree = (root) => {
-        if (root === null) return root;
-        [root.left, root.right] = [root.right, root.left];
-        invertTree(root.left);
-        invertTree(root.right)
-    }
-    invertTree(root);
-    return root;
+// // 直接上递归：前序遍历
+// var invertTree = function (root) {
+//     const invertTree = (root) => {
+//         if (root === null) return root;
+//         [root.left, root.right] = [root.right, root.left];
+//         invertTree(root.left);
+//         invertTree(root.right);
+//     }
+//     invertTree(root);
+//     return root;
+// }
 
+// 层序遍历
+var invertTree = function (root) {
+    let queue = [];
+    queue.push(root);
+
+    if (root === null) return root;
+    while (queue.length) {
+        let length = queue.length;
+        for (let i = 0; i < length; i++) {
+            let node = queue.shift();
+            [node.left, node.right] = [node.right, node.left];
+            if (node.left) {
+                queue.push(node.left)
+            }
+            if (node.right) {
+                queue.push(node.right);
+            }
+        }
+    }
+    return root;
 }
 // @lc code=end
 
