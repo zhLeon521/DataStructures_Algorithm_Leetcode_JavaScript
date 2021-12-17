@@ -18,26 +18,50 @@
  * @return {number}
  */
 // 在二叉搜索树上，求最值、差值，就把他放到有序数组上1求。
+// var getMinimumDifference = function (root) {
+//     let arr = [];
+//     const toArray = (root) => {
+//         if (root) {
+//             toArray(root.left);
+//             arr.push(root.val);
+//             toArray(root.right);
+//         }
+//     }
+
+//     toArray(root);
+
+//     let diff = arr[arr.length - 1];
+//     for (let i = 1; i < arr.length; i++) {
+//         if (diff > arr[i] - arr[i - 1]) {
+//             diff = arr[i] - arr[i - 1]
+//         }
+//     }
+//     return diff;
+
+// };
+
+// 换个写法
 var getMinimumDifference = function (root) {
     let arr = [];
     const toArray = (root) => {
         if (root) {
             toArray(root.left);
             arr.push(root.val);
-            toArray(root.right);
+            toArray(root.right)
         }
     }
 
     toArray(root);
-
-    let diff = arr[arr.length - 1];
-    for (let i = 1; i < arr.length; i++) {
-        if (diff > arr[i] - arr[i - 1]) {
-            diff = arr[i] - arr[i - 1]
+    let res = Infinity; //输出结果
+    let i = 1; //准备遍历
+    while (i < arr.length) {
+        let diff = Math.abs(arr[i - 1] - arr[i]);
+        if (diff < res) {
+            res = diff;
         }
+        i++;
     }
-    return diff;
-
-};
+    return res;
+}
 // @lc code=end
 
