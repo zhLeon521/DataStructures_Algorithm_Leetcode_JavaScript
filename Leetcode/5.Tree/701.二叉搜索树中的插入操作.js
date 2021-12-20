@@ -40,5 +40,38 @@ var insertIntoBST = function (root, val) {
     return traversal(root, val);
 
 };
+
+
+// // 相对来说复杂了，用有返回值的
+// // 如果是没有返回值，需要记录上一个节点（parent）,当前遍历的指针遇到空节点时，让parent的左孩子或者右孩子 指向 新插入的节点即可
+// var insertIntoBST = function (root, val) {
+//     let parent = new TreeNode(0);
+//     const traversal = (curr, val) => {
+//         if (curr === null) {
+//             let node = new TreeNode(val);
+//             if (parent.val > val) {
+//                 parent.left = node;
+//             }
+//             if (parent.val < val) {
+//                 parent.right = node;
+//             }
+//             return;
+//         }
+
+//         parent = curr;
+
+//         if (curr.val > val) {
+//             traversal(curr.left, val)
+//         }
+//         if (curr.val < val) {
+//             traversal(curr.right, val)
+//         }
+//     }
+//     if (root === null) {
+//         root = new TreeNode(val)
+//     }
+//     traversal(root, val)
+//     return root;
+// }
 // @lc code=end
 
