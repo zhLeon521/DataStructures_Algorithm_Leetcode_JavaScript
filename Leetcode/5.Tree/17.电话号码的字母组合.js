@@ -32,7 +32,7 @@ const letterCombinations = (digits) => {
     // index:记录遍历第几个【数字】
     const backtracking = (digits, index) => {
         if (digits.length === index) { //如果此时index等于【输入数字的个数】
-            res.push(path.join("")) //将此条结果传入res中
+            res.push(path.join("")) //将此条结果传入res中 ...看答案形式进行输出
             return; //结束本层迭代
         }
         // 迭代循环：index
