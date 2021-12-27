@@ -18,7 +18,8 @@ var combine = function (n, k) {
     const backtracking = (n, k, startIndex) => {
         // 如果已经选择的元素个数path.length等于k,直接将结果放到res中，并返回
         if (path.length === k) {
-            res.push([...path])
+            // res.push([...path]) 
+            res.push(path.slice()) //slice 是纯函数
             return;
         }
         // 横向遍历，在集合n中，至多要从（n - (k - path.length) + 1）开始遍历。这是一个左闭的区间
