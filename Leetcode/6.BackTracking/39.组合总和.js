@@ -6,41 +6,32 @@
 
 // @lc code=start
 /**
- * @param {number[]} candidates
+ * @param {number[]} candidates //候选人
  * @param {number} target
  * @return {number[][]}
  */
 // var combinationSum = function (candidates, target) {
 //     let res = [];
 //     let path = [];
+
 //     const backtracking = (candidates, target, sum, startIndex) => {
-//         if (sum > target) {
-//             return;
-//         }
-
+//         if (sum > target) { return; }
 //         if (sum === target) {
-//             res.push(Array.from(path))
-//             // res.push(path.slice())
-//             // res.push([...path])
+//             res.push(path.slice())
 //             return;
 //         }
-
 //         for (let i = startIndex; i < candidates.length; i++) {
 //             sum += candidates[i];
-//             path.push(candidates[i]);
-//             console.log(path)
-//             backtracking(candidates, target, sum, i) // 这里不用i+1,因为可以重复取。
+//             path.push(candidates[i])
+//             backtracking(candidates, target, sum, i); //注意哈:这里i不用从i+1开始，因为元素可重复
 //             sum -= candidates[i];
-//             path.pop();
-
+//             path.pop()
 //         }
 //     }
-//     backtracking(candidates, target, 0, 0)
+//     backtracking(candidates, target, 0, 0) //注意startIndex的起始位置
 //     return res;
 
-
 // };
-
 
 // 剪枝操作
 var combinationSum = function (candidates, target) {
