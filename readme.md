@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-01-03 21:24:02
- * @LastEditTime: 2021-12-31 15:00:59
+ * @LastEditTime: 2021-12-31 15:03:32
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\readme.md
 -->
 ## 不要怂，就是干！
@@ -58,7 +58,7 @@
  - 491、332
 
 
-2022年1月1-7日 `贪心算法`
+2022年1月1-7日 `Greedy`
 455.分发饼干
 376.摆动序列
 53.最大子序和
