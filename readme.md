@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-01-03 21:24:02
- * @LastEditTime: 2021-12-27 13:37:59
+ * @LastEditTime: 2021-12-31 14:49:32
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\readme.md
 -->
 ## 不要怂，就是干！
@@ -38,7 +38,7 @@
  2. 求普通二叉树的属性，选择后序遍历，一般通过递归函数的返回值做计算。关于单纯求深度、为了让父节点指向子节点(257)这种情况用前序遍历。
  3. 求二叉搜索树的属性，选择中序遍历，充分利用二叉树的特性。 
 
-2021年12月21-31日 `Backtracking`
+2021年12月21-31日 `Backtracking`  【赶在2021年年末完成了回溯算法】
 1.组合问题
  - 77、216、17、39、40
 
