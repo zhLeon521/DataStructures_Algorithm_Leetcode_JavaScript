@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2022-01-29 00:25:43
- * @LastEditTime: 2022-01-29 00:43:25
+ * @LastEditTime: 2022-01-29 00:48:45
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\leetcode-3\1.Array\704.二分查找.js
  */
 /*
@@ -17,6 +17,7 @@
  * @param {number} target
  * @return {number}
  */
+// 左闭右闭
 var search = function (nums, target) {
     let left = 0, right = nums.length - 1;
     while (left <= right) {
