@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2022-01-30 12:11:00
- * @LastEditTime: 2022-01-30 12:47:50
+ * @LastEditTime: 2022-01-30 12:51:08
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\leetcode-3\1.Array\209.长度最小的子数组.js
  */
 /*
@@ -27,7 +27,7 @@ var minSubArrayLen = function (target, nums) {
         while (sum >= target) {
             minLength = Math.min(minLength, j - i + 1);
             sum -= nums[i]
-            i++;
+            i++; // 不断变更子数组的起始位置
         }
         j++;
     }
