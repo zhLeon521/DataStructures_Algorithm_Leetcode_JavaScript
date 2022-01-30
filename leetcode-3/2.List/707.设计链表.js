@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2022-01-30 22:42:12
- * @LastEditTime: 2022-01-30 23:24:51
+ * @LastEditTime: 2022-01-30 23:28:39
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\leetcode-3\2.List\707.设计链表.js
  */
 /*
@@ -14,10 +14,10 @@
 // @lc code=start
 
 // 定义结构体
-var ListNode = function (val) {
-    this.val = val;
-    this.next = null;
-};
+var ListNode = function ListNode(val, next) {
+    this.val = (val === undefined ? 0 : val);
+    this.next = (next === undefined ? null : next)
+}
 
 var MyLinkedList = function (head) {
     this.head = head;
