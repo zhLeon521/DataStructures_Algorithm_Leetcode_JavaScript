@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2022-02-01 00:15:33
- * @LastEditTime: 2022-02-01 00:58:11
+ * @LastEditTime: 2022-02-01 01:00:33
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\leetcode-3\3.Hash Table\15.三数之和.js
  */
 /*
@@ -35,6 +35,8 @@ var threeSum = function (nums) {
 
     for (let k = 0; k < nums.length - 2; k++) {
         if (nums[k] > 0) break; //如果排序后的第一个元素大于0，则和肯定大于零
+
+        // 去重
         if (k > 0 && nums[k] === nums[k - 1]) continue;  //去重
         let i = k + 1, j = nums.length - 1; //i,j都是下标
         while (i < j) {
@@ -43,12 +45,11 @@ var threeSum = function (nums) {
                 res.push([nums[k], nums[i], nums[j]])
                 // while (nums[i] === nums[++i]);//去重处理
                 // while (nums[j] === nums[--j]);
-
+                // 去重逻辑应该在找到一个三元组的后面
                 // 等价于 
-
                 while (i < j && nums[i] === nums[i + 1]) i++;
                 while (i < j && nums[j] === nums[j - 1]) j--;
-                i++;
+                i++; //找到答案，双指针收缩
                 j--;
             }
             else if (sum < 0) {
