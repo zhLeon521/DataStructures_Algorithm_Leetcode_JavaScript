@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-09-18 16:36:18
- * @LastEditTime: 2021-09-19 16:00:23
+ * @LastEditTime: 2022-02-13 23:46:44
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\1.Array\28.实现-str-str.js
  */
 /*
@@ -62,7 +62,9 @@ function getNext(s) {
     let next = [];
     let j = -1;
     next[0] = j;
-    for (let i = 1; i < s.length; i++){ // 注意i从1开始
+    // i指向后缀起始位置，j指向前缀起始位置
+    // next[i]表示i(包括i)之前最长相等的前后缀的长度（其实就是j）,所以初始化next[0]=j;
+    for (let i = 1; i < s.length; i++) { // 注意i从1开始
         while (j >= 0 && s[i] !== s[j + 1]) { // 前后缀不相同
             j = next[j];  // 向前回溯
         }
@@ -83,7 +85,7 @@ var strStr = function (haystack, needle) {
 
     let next = getNext(needle);  // 定义next数组
     let j = -1;  // nex数组中记录的起始位置为-1
-    for (let i = 0; i < haystack.length; i++){ // 比较的时候 从0开始
+    for (let i = 0; i < haystack.length; i++) { // 比较的时候 从0开始
         while (j >= 0 && haystack[i] !== needle[j + 1]) { // 不匹配的时候
             j = next[j]; // j寻找之前匹配的位置，向前回溯
         }
@@ -95,7 +97,7 @@ var strStr = function (haystack, needle) {
         // 就是文本串字符串中出现模式串的第一个位置。
 
         if (j === (needle.length - 1)) {  // 文本串 haystack 里出现了 模式串 needle;; j从-1开始的，所以长度减去1.
-            return (i - (needle.length - 1)); 
+            return (i - (needle.length - 1));
         }
     }
     return -1;
