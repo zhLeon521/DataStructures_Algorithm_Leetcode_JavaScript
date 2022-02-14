@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2022-02-14 01:15:51
- * @LastEditTime: 2022-02-14 01:40:02
+ * @LastEditTime: 2022-02-14 23:48:37
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\leetcode-3\5.Stack&Queue\225.用队列实现栈.js
  */
 /*
@@ -27,14 +27,14 @@ MyStack.prototype.push = function (x) {
 
 MyStack.prototype.pop = function () {
     let size = this.queue.length;
-    while (size-- > 1) {//将除了最后一个元素外的元素全部加入到队尾。
+    while (size-- > 1) {//将除了最后一个元素外的元素全部重新加入到队尾。
         this.queue.push(this.queue.shift());
     }
-    return this.queue.shift();
+    return this.queue.shift(); //此时弹出的顺序就是栈的顺序
 };
 
 MyStack.prototype.top = function () {
-    const x = this.pop();//先出栈，然后在加入队列
+    const x = this.pop();//先出栈，然后再加入队列
     this.queue.push(x);
     return x;
 };
