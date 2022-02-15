@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-07-21 00:48:44
- * @LastEditTime: 2021-07-23 23:08:30
+ * @LastEditTime: 2022-02-15 23:46:49
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\Leetcode\4.Queue\239.滑动窗口最大值.js
  */
 /*
@@ -21,8 +21,8 @@ var maxSlidingWindow = function (nums, k) {
     const len = nums.length;
     const res = [];
     const deque = [];
-    for (let i = 0; i < len; i++){
-        // 当队尾元素小于当前元素,将对微元素出栈（维持递减队列）
+    for (let i = 0; i < len; i++) {
+        // 当队尾元素小于当前元素,将对尾元素出栈（维持递减队列）
         while (deque.length && nums[i] >= nums[deque[deque.length - 1]]) {
             deque.pop();
         }
