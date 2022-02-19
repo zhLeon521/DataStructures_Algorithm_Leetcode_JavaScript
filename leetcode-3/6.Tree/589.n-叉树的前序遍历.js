@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2022-02-20 00:30:46
- * @LastEditTime: 2022-02-20 00:55:26
+ * @LastEditTime: 2022-02-20 01:08:35
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\leetcode-3\6.Tree\589.n-叉树的前序遍历.js
  */
 /*
@@ -24,7 +24,10 @@
  * @param {Node|null} root
  * @return {number[]}
  */
-
+function Node(val, children) {
+    this.val = val;
+    this.children = children;
+}
 
 // N叉树与二叉树唯一的区别就是不只左右二个子节点，会有多个子节点
 // 循环遍历多个子节点，再递归调用就OK了
