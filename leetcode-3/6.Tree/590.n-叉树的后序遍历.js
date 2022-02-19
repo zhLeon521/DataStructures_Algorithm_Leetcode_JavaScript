@@ -2,7 +2,7 @@
  * @Description:
  * @Autor: Blueheart
  * @Date: 2022-02-20 01:02:03
- * @LastEditTime: 2022-02-20 01:05:51
+ * @LastEditTime: 2022-02-20 01:07:26
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\leetcode-3\6.Tree\590.n-叉树的后序遍历.js
  */
 /*
@@ -24,6 +24,11 @@
  * @param {Node|null} root
  * @return {number[]}
  */
+function Node(val, children) {
+    this.val = val;
+    this.children = children;
+}
+
 var postorder = function (root) {
     const res = [];
     if (root === null) {
