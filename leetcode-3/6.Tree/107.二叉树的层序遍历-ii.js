@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2022-02-21 00:38:35
- * @LastEditTime: 2022-02-21 00:43:35
+ * @LastEditTime: 2022-02-21 00:46:35
  * @FilePath: \DataStructures_Algorithm_Leetcode_JavaScript\leetcode-3\6.Tree\107.二叉树的层序遍历-ii.js
  */
 /*
@@ -46,4 +46,35 @@ var levelOrderBottom = function (root) {
 
 };
 // @lc code=end
+
+
+
+// 方法二：
+// var levelOrderBottom = function (root) {
+//     let res = [];
+//     let queue = [];
+//     queue.push(root)
+
+//     if (root === null) return res;
+
+//     while (queue.length) {
+//         let currLevel = [];
+//         let length = queue.length;
+//         while (length--) {
+//             let node = queue.shift();
+//             currLevel.push(node.val);
+//             if (node.left) {
+//                 queue.push(node.left)
+//             }
+//             if (node.right) {
+//                 queue.push(node.right)
+//             }
+//         }
+//         res.push(currLevel)
+//     }
+
+//     return res.reverse();
+
+
+// };
 
