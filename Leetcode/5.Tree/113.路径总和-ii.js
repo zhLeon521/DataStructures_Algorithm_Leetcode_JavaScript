@@ -28,7 +28,7 @@
 var pathSum = function (root, targetSum) {
     let res = [];
     if (!root) return res;
-    
+
 
     const traversal = (node, count, path) => {
         // 遇到了叶子节点且找到了和为sum的路径
@@ -54,10 +54,9 @@ var pathSum = function (root, targetSum) {
         }
         return;
     }
-    
-    if (!root) return res;
+
     traversal(root, targetSum - root.val, [root.val]); // 把根节点放进路径
-    return res; 
+    return res;
 
 };
 
