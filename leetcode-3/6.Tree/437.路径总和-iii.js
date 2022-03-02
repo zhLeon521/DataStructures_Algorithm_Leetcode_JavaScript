@@ -31,33 +31,20 @@ var pathSum = function (root, targetSum) {
     dfs(root, 0);
     return ans;
 
-    // function dfs(node, sum) {
-    //     sum += node.val;
-
-    //     // 如果有前缀和符合 sum - targetSum, 拿到此前缀和对应的子路径个数
-    //     if (map.has(sum - targetSum)) ans += map.get(sum - targetSum);
-    //     // 将此前缀和加入map，更新子路径个数
-    //     map.set(sum, (map.get(sum) || 0) + 1);
-
-    //     if (node.left) dfs(node.left, sum);
-    //     if (node.right) dfs(node.right, sum);
-
-    //     // 回溯，包含此节点的，前缀和为sum的路径个数 - 1
-    //     map.set(sum, (map.get(sum) || 0) - 1);
-    // };
-
     function dfs(node, sum) {
         sum += node.val;
 
+        // 如果有前缀和符合 sum - targetSum, 拿到此前缀和对应的子路径个数
         if (map.has(sum - targetSum)) ans += map.get(sum - targetSum);
-
+        // 将此前缀和加入map，更新子路径个数
         map.set(sum, (map.get(sum) || 0) + 1);
 
         if (node.left) dfs(node.left, sum);
-        if (node.right) dfs(node.right, sum)
+        if (node.right) dfs(node.right, sum);
 
-        map.set(sum, (map.get(sum) || 0) - 1)
-    }
+        // 回溯，包含此节点的，前缀和为sum的路径个数 - 1
+        map.set(sum, (map.get(sum) || 0) - 1);
+    };
 }
 
 // @lc code=end
