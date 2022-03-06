@@ -15,18 +15,22 @@
  * @param {string} t
  * @return {boolean}
  */
- var backspaceCompare = function (s, t) {
+var backspaceCompare = function (s, t) {
     const build = (str) => {
-      let res = [];
-      for (let a of str) {
-        // 如果为退格键就出栈，否则就出栈
-        res[a === "#" ? "pop" : "push"](a);
-      }
-      return res.join("");
+        let res = [];
+        for (let a of str) {
+            // 如果为退格键就出栈，否则就出栈
+            // res[a === "#" ? "pop" : "push"](a);
+            a === "#" ? res.pop() : res.push(a);
+        }
+        return res.join("");
     };
     // 比较经过处理后的俩字符串 s 及 t 是否相同
     return build(s) === build(t);
-  };
-  
+};
+
+
+
+
 // @lc code=end
 
